@@ -2,6 +2,19 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Drawer from "./components/Drawer";
 
+const arr = [
+	{
+		title: "Nike Blazer Mid Suede",
+		price: 85,
+		imageUrl: "/img/sneakers/1.jpg",
+	},
+	{
+		title: "Nike Air Max 270",
+		price: 110,
+		imageUrl: "/img/sneakers/2.jpg",
+	},
+];
+
 function App() {
 	return (
 		<div className="wrapper clear">
@@ -17,10 +30,14 @@ function App() {
 				</div>
 
 				<div className="d-flex">
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{arr.map((obj) => (
+						<Card
+							title={obj.title}
+							price={obj.price}
+							imageUrl={obj.imageUrl}
+							onClick={() => alert(123)}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
