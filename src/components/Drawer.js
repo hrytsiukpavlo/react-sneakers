@@ -1,45 +1,32 @@
-function Drawer() {
+function Drawer({ onClose, items = [] }) {
 	return (
-		<div style={{ display: "none" }} className="overlay">
+		<div className="overlay">
 			<div className="drawer">
 				<h2 className="mb-30 d-flex justify-between">
-					Cart <img className="removeBtn cu-p" src="/img/btn-remove.svg" alt="Remove icon" />
+					Cart{" "}
+					<img
+						onClick={onClose}
+						className="removeBtn cu-p"
+						src="/img/btn-remove.svg"
+						alt="Remove icon"
+					/>
 				</h2>
 
 				<div className="items">
-					<div className="cartItem d-flex align-center justify-center mb-20">
-						<div
-							style={{ backgroundImage: "url(/img/sneakers/1.jpg)" }}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Nike Air Max</p>
-							<b>85$</b>
+					{items.map((obj) => (
+						<div className="cartItem d-flex align-center mb-20">
+							<div
+								style={{ backgroundImage: `url(${obj.imageUrl})` }}
+								className="cartItemImg"
+							></div>
+
+							<div className="mr-20 flex">
+								<p className="mb-5">{obj.title}</p>
+								<b>{obj.price}$</b>
+							</div>
+							<img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
 						</div>
-						<img className="removeBtn" src="/img/btn-remove.svg" alt="Remove icon" />
-					</div>
-					<div className="cartItem d-flex align-center justify-center mb-20">
-						<div
-							style={{ backgroundImage: "url(/img/sneakers/1.jpg)" }}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Nike Air Max</p>
-							<b>85$</b>
-						</div>
-						<img className="removeBtn" src="/img/btn-remove.svg" alt="Remove icon" />
-					</div>
-					<div className="cartItem d-flex align-center justify-center mb-20">
-						<div
-							style={{ backgroundImage: "url(/img/sneakers/1.jpg)" }}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Nike Air Max</p>
-							<b>85$</b>
-						</div>
-						<img className="removeBtn" src="/img/btn-remove.svg" alt="Remove icon" />
-					</div>
+					))}
 				</div>
 
 				<div className="cartTotalBlock">
