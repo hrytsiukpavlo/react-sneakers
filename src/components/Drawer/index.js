@@ -42,7 +42,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 					<img
 						onClick={onClose}
 						className="removeBtn cu-p"
-						src="/img/btn-remove.svg"
+						src="img/btn-remove.svg"
 						alt="Remove icon"
 					/>
 				</h2>
@@ -64,7 +64,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 									<img
 										onClick={() => onRemove(obj.id)}
 										className="removeBtn"
-										src="/img/btn-remove.svg"
+										src="img/btn-remove.svg"
 										alt="Remove"
 									/>
 								</div>
@@ -84,7 +84,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 								</li>
 							</ul>
 							<button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-								Complete order <img src="/img/arrow.svg" alt="Arrow" />{" "}
+								Complete order <img src="img/arrow.svg" alt="Arrow" />{" "}
 							</button>
 						</div>
 					</>
@@ -96,7 +96,7 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 								? `You order #${orderId} will be proceed via shipping company soon`
 								: "Add at least one pair of sneakers to complete order"
 						}
-						image={isorderComplete ? "/img/complete-order.jpg" : "/img/empty-cart.jpg"}
+						image={isorderComplete ? "img/complete-order.jpg" : "img/empty-cart.jpg"}
 					/>
 				)}
 			</div>
