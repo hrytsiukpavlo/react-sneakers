@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import axios from "axios";
-import AppContext from "../context";
+// import AppContext from "../context";
 import { Link } from "react-router-dom";
 
 export default function Orders() {
-	const { onAddToFavorite, onAddToCart } = useContext(AppContext);
+	// const { onAddToFavorite, onAddToCart } = useContext(AppContext);
 	const [orders, setOrders] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 

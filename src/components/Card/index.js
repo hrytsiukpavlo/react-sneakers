@@ -1,20 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Card.module.scss";
 import ContentLoader from "react-content-loader";
 import AppContext from "../../context";
 
-function Card({
-	id,
-	imageUrl,
-	title,
-	price,
-	onFavoriteClick,
-	onPlusClick,
-	favorited = false,
-	loading = false,
-}) {
-	const { isItemAdded } = React.useContext(AppContext);
-	const [isFavorite, setIsFavorite] = useState(favorited);
+function Card({ id, imageUrl, title, price, onFavoriteClick, onPlusClick, loading = false }) {
+	const { isItemAdded, isItemFavorited } = React.useContext(AppContext);
 	const obj = { id, parentId: id, title, imageUrl, price };
 
 	const handleClick = () => {
@@ -23,7 +13,6 @@ function Card({
 
 	const onClickFavorite = () => {
 		onFavoriteClick(obj);
-		setIsFavorite(!isFavorite);
 	};
 
 	return (
@@ -47,7 +36,10 @@ function Card({
 				<>
 					{onFavoriteClick && (
 						<div className={styles.favorite} onClick={onClickFavorite}>
-							<img src={isFavorite ? "img/liked.svg" : "img/unliked.svg"} alt="Unliked icon" />
+							<img
+								src={isItemFavorited(id) ? "img/liked.svg" : "img/unliked.svg"}
+								alt="Like icon"
+							/>
 						</div>
 					)}
 					<img width="100%" height={135} src={imageUrl} alt="Sneakers" />
