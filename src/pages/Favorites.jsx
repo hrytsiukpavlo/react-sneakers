@@ -14,7 +14,13 @@ export default function Favorites() {
 			<div className="d-flex flex-wrap">
 				{favorites.length > 0 ? (
 					favorites.map(({ parentId, title, ...item }) => (
-						<Card key={title} onFavoriteClick={onAddToFavorite} {...item} id={parentId} />
+						<Card
+							key={title}
+							onFavoriteClick={onAddToFavorite}
+							{...item}
+							id={parentId}
+							title={title}
+						/>
 					))
 				) : (
 					<div className="emptyFavorites">
